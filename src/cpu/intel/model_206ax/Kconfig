@@ -35,4 +35,13 @@ config MAX_CPUS
 	int
 	default 8
 
+config FORCE_MAX_TURBO_RATIO
+	bool "Force turbo ratios to the maximum possible value"
+	default n
+	help
+	  By selecting this, all core turbo ratios will be set to the maximum possible value,
+	  which is the maximum non-turbo ratio of the CPU plus the number of overclocking bins
+	  by which the CPU can be overclocked. This is an overclocking option and therefore is
+	  dangerous to enable, especially on mobile platforms with a limited cooling solution!
+
 endif
