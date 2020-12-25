@@ -86,7 +86,8 @@ chip northbridge/intel/sandybridge
 				chip drivers/ricoh/rce822
 					register "sdwppol" = "1"
 					register "disable_mask" = "0x87"
-					device pci 00.0 on end
+					device pci 00.0 on end # Ricoh Co Ltd MMC/SD Host Controller
+					device pci 00.3 on end # Ricoh Co Ltd PCIe IEEE 1394 Controller
 				end
 			end # PCIe Port #5 (Ricoh SD & FW)
 			device pci 1c.5 off end # PCIe Port #6 Intel Gigabit Ethernet PHY (not PCIe)

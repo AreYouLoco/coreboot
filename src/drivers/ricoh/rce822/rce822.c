@@ -49,7 +49,7 @@ static struct device_operations rce822_ops = {
 	.ops_pci		= &lops_pci,
 };
 
-static const unsigned short pci_device_ids[] = { 0xe822, 0xe823, 0 };
+static const unsigned short pci_device_ids[] = { 0xe822, 0xe823, 0xe832, 0 };
 
 static const struct pci_driver rce822 __pci_driver = {
 	.ops	 = &rce822_ops,
