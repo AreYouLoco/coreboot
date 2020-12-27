@@ -200,7 +200,12 @@ static void dram_find_spds_ddr3(spd_raw_data *spd, ramctr_timing *ctrl)
 				/* TODO: Support DDR3 voltages other than 1500mV */
 				printram("XMP profile's requested %u mV is unsupported.\n",
 						 dimm->voltage);
-				spd_decode_ddr3(dimm, spd[spd_slot]);
+
+				if (CONFIG(NATIVE_RAMINIT_IGNORE_XMP_REQUESTED_VOLTAGE))
+					printk(BIOS_WARNING,
+						"XMP requested voltage will be ignored.\n");
+				else
+					spd_decode_ddr3(dimm, spd[spd_slot]);
 			}
 
 			/* Fill in CRC16 for MRC cache */
@@ -304,7 +309,7 @@ static void init_dram_ddr3(int s3resume, const u32 cpuid)
 
 	wait_txt_clear();
 
-	wrmsr(0x000002e6, (msr_t) { .lo = 0, .hi = 0 });
+	wrmsr(0x2e6, (msr_t) { .lo = 0, .hi = 0 });
 
 	const u32 sskpd = MCHBAR32(SSKPD);	// !!! = 0x00000000
 	if ((pci_read_config16(SOUTHBRIDGE, 0xa2) & 0xa0) == 0x20 && sskpd && !s3resume) {
