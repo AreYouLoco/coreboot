@@ -13,4 +13,4 @@ fn_ctrl_swap=Disable
 sticky_fn=Disable
 trackpoint=Enable
 hybrid_graphics_mode=Dual Graphics
-usb_always_on=Enable
+usb_always_on=Disable
