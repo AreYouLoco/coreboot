@@ -167,4 +167,13 @@
 // ========== IOAPIC Definitions for DMAR/ACPI ========
 #define PCH_IOAPIC_ID                   0x08
 
+// DMI3 B0D0F0 registers
+#define DMI3_DEVID		0x2020
+#define DMIRCBAR		0x50
+#define ERRINJCON		0x1d8
+
+// IIO DFX Global D7F7 registers
+#define IIO_DFX_TSWCTL0		0x30c
+#define IIO_DFX_LCK_CTL		0x504
+
 #endif /* _SOC_PCI_DEVS_H_ */
